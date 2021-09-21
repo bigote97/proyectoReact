@@ -1,7 +1,7 @@
 <h1 align="center">Hola 👋, mi nombre es Augusto Rossetti Lorea</h1>
 <h3 align="center">Soy Desarrollador Web UI y me apasiona la domotica, ioT y la electronica.</h3>
 
-- 🔭 Actualmente estoy trabajando en este dashboard que gestionara la automatizacion de mi hogar **Dashboard-iot**
+- 🔭 Actualmente estoy trabajando en este ecommerce **GrEEnCommerce**
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
