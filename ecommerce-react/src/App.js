@@ -1,11 +1,18 @@
-import NavBar from "./components/NavBar";
+import NavBar from "./components/layout/NavBar";
+import Cuerpo from "./components/Proposito";
+import ListadoPlantas from "./components/products/ListadoPlantas";
+import ListadoHerramientas from "./components/products/ListadoHerramientas";
+import ListadoInvernaderos from "./components/products/ListadoInvernaderos";
+
+
 function App() {
   return (
     <div>
-      <NavBar/>
-      <header>
-        <p className="text-verde-darseafoamk mx-6 my-3"> <span className="font-semibold text-xl tracking-tight"> GrEEnCommerce </span> es el primer vivero virtual creado por aficionados, con el fin de recaudar lo necesario para subsistir y fomentar el crecimiento de la cultura sustentable asi como el cuidado del medio ambiente cultivando plantas autoctonas y sistemas de biodiversidad que colaboren en la reincorporacion de los recursos al medio ambiente</p>
-      </header>
+      <NavBar />
+      <Cuerpo />
+      <ListadoPlantas />
+      <ListadoHerramientas />
+      <ListadoInvernaderos />
     </div>
   );
 }
