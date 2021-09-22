@@ -1,7 +1,7 @@
 <h1 align="center">Hola 👋, mi nombre es Augusto Rossetti Lorea</h1>
 <h3 align="center">Soy Desarrollador Web UI y me apasiona la domotica, ioT y la electronica.</h3>
 
-- 🔭 Actualmente estoy trabajando en este ecommerce llamado **GrEEnCommerce**, se trata de un Ecommerce desarrollado para viveros y huerteros apasionados que quieran vender sus productos
+- 🔭 Actualmente estoy realizando el Bootcamp de React dictado por Coderhouse, en el estoy desarrollando un sitio llamado **GrEEnCommerce**, se trata de un Ecommerce desarrollado para viveros y huerteros apasionados que quieran vender sus productos
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
