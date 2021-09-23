@@ -25,7 +25,7 @@ const ProductButton = ({producto}) => {
   };
 	return(
 		<div>
-			<div className="flex flex-row">
+			<div className="flex justify-center flex-row">
 				<button className="font-semibold" onClick={menos}>-</button>
 				<input className="mx-2 border rounded text-center w-8" type="text" value={cantidad}/>
 				<button className="font-semibold" onClick={mas}>+</button>
