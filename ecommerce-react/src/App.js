@@ -1,6 +1,8 @@
 import NavBar from "./components/layout/NavBar";
+import Footer from "./components/layout/Footer";
 import Cuerpo from "./components/Proposito";
-import Footer from "./components/Footer";
+import SubTitulos from "./components/SubTitulos";
+
 import ListadoProductos from "./components/products/ListadoProductos";
 
 const Herramientas = [
@@ -120,14 +122,32 @@ const Plantas = [
 	}
 ]
 
+const subtituloPlantas = {
+	id:"ListadoPlantas",
+	subtitulo: "Plantas",
+	adicional: "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente"
+};
+const subtitulosHerramientas = {
+	id:"ListadoHerramientas",
+	subtitulo: "Herramientas",
+	adicional: "Herramientas es la seccion donde encontraras todo lo necesario para trabajar tu huerta y tu jardin"
+};
+const subtitulosInvernaderos = {
+	id: "ListadoInvernaderos",
+	subtitulo: "Invernaderos",
+	adicional: "Contamos con varios modelos de invernaderos y elementos para su optima utilizacion"
+};
 function App() {
   return (
     <div>
       <NavBar />
       <Cuerpo />
-      <ListadoProductos id="ListadoPlantas" productos={Plantas} />
-      <ListadoProductos id="ListadoHerramientas" productos={Herramientas} />
-      <ListadoProductos id="ListadoInvernaderos" productos={Invernaderos} />
+	  <SubTitulos texto={subtituloPlantas}/>
+      	<ListadoProductos productos={Plantas} />
+	  <SubTitulos texto={subtitulosHerramientas}/>
+      	<ListadoProductos productos={Herramientas} />
+	  <SubTitulos texto={subtitulosInvernaderos}/>
+      	<ListadoProductos productos={Invernaderos} />
       <Footer />
     </div>
   );
