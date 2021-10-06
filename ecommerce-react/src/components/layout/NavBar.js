@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import IconoCarrito from "../icons/IconoCarrito";
 import Carrito from "../carrito/Carrito";
 
@@ -32,10 +33,10 @@ function NavBar() {
 				</div>
 				<div className={isActive ? "w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden" : "w-full block flex-grow lg:flex lg:items-center lg:w-auto"}>
 					<div className="text-sm lg:flex-grow">
-						<a href="#Proposito" onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4">Home</a>
-						<a href="#ListadoPlantas" onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4">Plantas</a>
-						<a href="#ListadoHerramientas" onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4">Herramientas</a>
-						<a href="#ListadoInvernaderos" onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro">Invernaderos</a>
+						<NavLink exact to="/" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Home</span></NavLink>
+						<NavLink to="/plantas" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Plantas</span></NavLink>
+						<NavLink to="/herramientas" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Herramientas</span></NavLink>
+						<NavLink to="/invernaderos" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Invernaderos</span></NavLink>
 					</div>
 				</div>
 				<div className="hidden lg:block" onClick={cartToggle}>

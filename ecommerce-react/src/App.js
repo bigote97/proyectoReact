@@ -1,26 +1,35 @@
 import NavBar from "./components/layout/NavBar";
 import Footer from "./components/layout/Footer";
 import Cuerpo from "./components/Proposito";
-import SubTitulos from "./components/SubTitulos";
+import Category from "./components/Category";
+import ProductDetail from "./components/products/ProductDetail";
 
-import ListadoProductos from "./components/products/ListadoProductos";
+import {BrowserRouter, Switch, Route} from "react-router-dom"
 
-import productos from "./data/productos";
-import titulos from "./data/titulos";
 
+// https://my.api.mockaroo.com/plantas.json?key=2be18e60
 
 function App() {
   return (
     <div>
-      <NavBar />
-		<Cuerpo/>
-		<SubTitulos texto={titulos.subtituloPlantas}/>
-			<ListadoProductos productos={productos.Plantas} />
-		<SubTitulos texto={titulos.subtitulosHerramientas}/>
-			<ListadoProductos productos={productos.Herramientas} />
-		<SubTitulos texto={titulos.subtitulosInvernaderos}/>
-			<ListadoProductos productos={productos.Invernaderos} />
+	  <BrowserRouter>
+        <NavBar />
+        <Switch>
+			<Route exact path="/">
+				<Cuerpo/>
+			</Route>
+			<Route exact path="/:categoria">
+				<Category />
+			</Route>
+			<Route exact path="/productDetail/:ID">
+				<ProductDetail />
+			</Route>
+			<Route path="*">
+				<Cuerpo/>
+			</Route>
+		</Switch>
       	<Footer />
+	  </BrowserRouter>
     </div>
   );
 }
