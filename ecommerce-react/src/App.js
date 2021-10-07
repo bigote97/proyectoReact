@@ -3,6 +3,7 @@ import Footer from "./components/layout/Footer";
 import Cuerpo from "./components/Proposito";
 import Category from "./components/Category";
 import ProductDetail from "./components/products/ProductDetail";
+import Carrito from "./components/carrito/Carrito";
 
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 
@@ -23,6 +24,9 @@ function App() {
 			</Route>
 			<Route exact path="/productDetail/:ID">
 				<ProductDetail />
+			</Route>
+			<Route exact path="/carrito/:ID">
+			<Carrito/>
 			</Route>
 			<Route path="*">
 				<Cuerpo/>

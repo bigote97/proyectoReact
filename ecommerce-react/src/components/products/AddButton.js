@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const ProductButton = ({producto}) => {
+	const carro = '/carrito/' + producto.id
 	const [cantidad, setCantidad] = useState (0); 
 	const mas = () => {
 		if (cantidad < producto.stock) {
@@ -29,7 +31,9 @@ const ProductButton = ({producto}) => {
 				<input className="mx-2 border rounded text-center w-8" type="text" value={cantidad}/>
 				<button className="font-semibold" onClick={mas}>+</button>
 			</div>
-			<button className="mt-2 py-1 px-3 border rounded"  onClick={AddToCart}>agregar al carrito</button>
+			<Link to={carro}>
+				<button className="mt-2 py-1 px-3 border rounded"  onClick={AddToCart}>agregar al carrito</button>
+			</Link>
 		</div>
 	);
 }

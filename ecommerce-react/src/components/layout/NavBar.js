@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { NavLink, Link} from "react-router-dom";
 import IconoCarrito from "../icons/IconoCarrito";
-import Carrito from "../carrito/Carrito";
 
 function NavBar() {
 	const [isActive, setActive] = useState("false");
@@ -11,11 +10,6 @@ function NavBar() {
 		setActive(!isActive);
 	};
 
-	const cartToggle = () => {
-		setShowCart(!showCart);
-	};
-
-	const textoCarrtio = {titulo: 'Carrtio', text:"En breves se solucionara este bug"};
 
 	return (
 		<header className="sticky top-0 w-full my-0">
@@ -24,11 +18,14 @@ function NavBar() {
 					<Link to="/"><span className="font-semibold text-xl tracking-tight">GrEEnCommerce</span></Link>
 				</div>
 				<div className=" lg:hidden flex items-center justify-between flex-wrap">
-					<button className=" flex items-center px-3 py-2 border rounded text-verde-darseafoamk border-teal-400 hover:text-verde-oscuro hover:border-verde-oscuro" onClick={handleToggle}>
+					
+					<button className=" flex items-center px-3 py-2 border rounded text-verde-darseafoamk border-teal-400 hover:text-verde-oscuro hover:border-verde-oscuro" onClick={handleToggle} >
 						<svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
 					</button>
-					<div onClick={cartToggle}  className="ml-3">
+					<div className="ml-3">
+					<Link to="/carrito/0">
 						<IconoCarrito/>
+					</Link>
 					</div>
 				</div>
 				<div className={isActive ? "w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden" : "w-full block flex-grow lg:flex lg:items-center lg:w-auto"}>
@@ -39,13 +36,12 @@ function NavBar() {
 						<NavLink to="/Invernaderos" activeStyle={{ fontWeight: "bold"}} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Invernaderos</span></NavLink>
 					</div>
 				</div>
-				<div className="hidden lg:block" onClick={cartToggle}>
+				<div className="hidden lg:block">
+				<Link to="/carrito/0">
 					<IconoCarrito className="mr-3 px-3 py-2 border rounded"/>
+				</Link>
 				</div>
 			</nav>
-			<div className={showCart ? 'hidden' : 'block w-full'}>
-				<Carrito texto={textoCarrtio}/>
-			</div>
 		</header>
     );
   }

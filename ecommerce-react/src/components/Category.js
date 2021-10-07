@@ -43,7 +43,7 @@ const Category = () =>{
 						<Skeleton count={5} />
 					</>
 					:<>
-            {items.map(items => <CardProducto producto={items} />)}
+           				{items.map(items => <CardProducto producto={items} />)}
 					</>
 				}
             </div>
