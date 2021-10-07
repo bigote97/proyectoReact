@@ -1,22 +1,12 @@
 import {useParams} from "react-router-dom";
-import productos from "../../data/productos";
+import productos from "../../data/listado";
 import AddButton from "./AddButton";
 
-const ProductDetail = ({producto})=> {
-    let data = []
+const ProductDetail = ()=> {
     let encontrado 
     const {ID} = useParams();
-    productos.Plantas.forEach(planta => {
-        data.push(planta)
-    });
-    productos.Herramientas.forEach(herramienta => {
-        data.push(herramienta)
-    });
-    productos.Invernaderos.forEach(invernadero => {
-        data.push(invernadero)
-    });
-    encontrado = data.find(x => x.id === ID)   
-
+    encontrado = productos.Listado.find(x => x.id === ID)   
+    document.title = `Producto: ${encontrado.titulo}`
     return(
         <div className=" max-w-2xl mx-auto mt-5 lg:max-w-7xl">
             <div className="flex flex-col justify-around">

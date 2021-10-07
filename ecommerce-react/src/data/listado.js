@@ -1,6 +1,9 @@
 export default {
-	"Herramientas": [
+	"Listado": [
+		// Herramientas
 		{
+			"categoria": "Herramientas",
+			"descripcionCategoria":  "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Rastrillo de alambre",
 			"precio": 49.90,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -10,6 +13,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Herramientas",
+			"descripcionCategoria":  "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Set pala y tridente",
 			"precio": 35.00,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -19,6 +24,8 @@ export default {
 			"stock": 20
 		},
 		{
+			"categoria": "Herramientas",
+			"descripcionCategoria":  "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Regadera de zinc",
 			"precio": 140.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -28,6 +35,8 @@ export default {
 			"stock": 33
 		},
 		{
+			"categoria": "Herramientas",
+			"descripcionCategoria":  "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Aspersor 360°",
 			"precio": 40.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -35,10 +44,11 @@ export default {
 			"alt": "Aspersor 360°",
 			"id": "24",
 			"stock": 5
-		}
-	],
-	"Invernaderos": [
+		},
+		// Invernaderos
 		{
+			"categoria": "Invernaderos",
+			"descripcionCategoria": "Contamos con varios modelos de invernaderos y elementos para su optima utilizacion",
 			"titulo": "Invernadero Canadiense",
 			"precio": 49.90,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -48,6 +58,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Invernaderos",
+			"descripcionCategoria": "Contamos con varios modelos de invernaderos y elementos para su optima utilizacion",
 			"titulo": "Invernadero victoriano",
 			"precio": 35.00,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -57,6 +69,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Invernaderos",
+			"descripcionCategoria": "Contamos con varios modelos de invernaderos y elementos para su optima utilizacion",
 			"titulo": "Torre de cultivo",
 			"precio": 40.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -66,6 +80,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Invernaderos",
+			"descripcionCategoria": "Contamos con varios modelos de invernaderos y elementos para su optima utilizacion",
 			"titulo": "Invernadero domo",
 			"precio": 40.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -73,10 +89,11 @@ export default {
 			"alt": "Invernadero domo",
 			"id": "34",
 			"stock": 10
-		}
-	],
-	"Plantas": [
+		},
+		// "Plantas"
 		{
+			"categoria": "Plantas",
+			"descripcionCategoria": "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Oregano",
 			"precio": 49.90,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -86,6 +103,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Plantas",
+			"descripcionCategoria": "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Menta",
 			"precio": 35.00,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -95,6 +114,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Plantas",
+			"descripcionCategoria": "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Albahaca",
 			"precio": 40.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
@@ -104,6 +125,8 @@ export default {
 			"stock": 10
 		},
 		{
+			"categoria": "Plantas",
+			"descripcionCategoria": "Plantas es la seccion donde encontraras todas las especies con las que disponemos actualmente",
 			"titulo": "Tomillo",
 			"precio": 45.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",

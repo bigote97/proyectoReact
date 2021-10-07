@@ -33,10 +33,10 @@ function NavBar() {
 				</div>
 				<div className={isActive ? "w-full block flex-grow lg:flex lg:items-center lg:w-auto hidden" : "w-full block flex-grow lg:flex lg:items-center lg:w-auto"}>
 					<div className="text-sm lg:flex-grow">
-						<NavLink exact to="/" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Home</span></NavLink>
-						<NavLink to="/plantas" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Plantas</span></NavLink>
-						<NavLink to="/herramientas" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Herramientas</span></NavLink>
-						<NavLink to="/invernaderos" activeStyle={{ fontWeight: "bold", color: "red" }} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Invernaderos</span></NavLink>
+						<NavLink exact to="/" activeStyle={{ fontWeight: "bold"}} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Home</span></NavLink>
+						<NavLink to="/Plantas" activeStyle={{ fontWeight: "bold"}} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Plantas</span></NavLink>
+						<NavLink to="/Herramientas" activeStyle={{ fontWeight: "bold"}} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Herramientas</span></NavLink>
+						<NavLink to="/Invernaderos" activeStyle={{ fontWeight: "bold"}} ><span onClick={handleToggle} className="block mt-4 lg:inline-block lg:mt-0 text-verde-darseafoamk hover:text-verde-oscuro mr-4"> Invernaderos</span></NavLink>
 					</div>
 				</div>
 				<div className="hidden lg:block" onClick={cartToggle}>
