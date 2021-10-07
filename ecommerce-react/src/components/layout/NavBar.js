@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
 import IconoCarrito from "../icons/IconoCarrito";
 import Carrito from "../carrito/Carrito";
 
@@ -18,10 +18,10 @@ function NavBar() {
 	const textoCarrtio = {titulo: 'Carrtio', text:"En breves se solucionara este bug"};
 
 	return (
-		<header className="fixed top-0 w-full my-0">
+		<header className="sticky top-0 w-full my-0">
 			<nav className="flex items-center justify-between flex-wrap bg-verde-kelly p-6">
 				<div className="flex items-center flex-shrink-0 text-verde-darseafoamk mr-6">
-					<span className="font-semibold text-xl tracking-tight">GrEEnCommerce</span>
+					<Link to="/"><span className="font-semibold text-xl tracking-tight">GrEEnCommerce</span></Link>
 				</div>
 				<div className=" lg:hidden flex items-center justify-between flex-wrap">
 					<button className=" flex items-center px-3 py-2 border rounded text-verde-darseafoamk border-teal-400 hover:text-verde-oscuro hover:border-verde-oscuro" onClick={handleToggle}>

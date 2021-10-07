@@ -1,4 +1,5 @@
-import ProductButton from './ProductButton';
+import AddButton from './AddButton';
+import VerMasButton from './VerMasButton';
 
 const CardProducto = ({producto}) => {
 	return(
@@ -10,7 +11,8 @@ const CardProducto = ({producto}) => {
 				<h3 className="mt-4 text-sm text-gray-700">{producto.titulo}</h3>
 				<p className="mt-1 text-lg font-medium text-gray-900">${producto.precio}</p>
 			</a>
-			<ProductButton producto={producto} />
+			<AddButton producto={producto} />
+			<VerMasButton id={producto.id} />
 		</div>
 	);
 }

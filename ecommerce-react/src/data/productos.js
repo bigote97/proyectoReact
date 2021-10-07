@@ -39,7 +39,7 @@ export default {
 	],
 	"Invernaderos": [
 		{
-			"titulo": "Invernadero 5x10 metros",
+			"titulo": "Invernadero Canadiense",
 			"precio": 49.90,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
 			"imagen": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9xXpl8bMcvlUvGzHYL1E1Qos9XpJ7ajUpWg&usqp=CAU",
@@ -48,7 +48,7 @@ export default {
 			"stock": 10
 		},
 		{
-			"titulo": "Invernadero 3x5 metros",
+			"titulo": "Invernadero victoriano",
 			"precio": 35.00,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
 			"imagen": "https://www.hideouthouse.com/wp-content/uploads/2015/05/solar-panel-greenhouse.jpg",
@@ -57,11 +57,11 @@ export default {
 			"stock": 10
 		},
 		{
-			"titulo": "Torres de cultivo",
+			"titulo": "Torre de cultivo",
 			"precio": 40.50,
 			"url": "https://tailwindui.com/components/ecommerce/components/product-lists",
 			"imagen": "https://pacificdomes.com/WP/wp-content/uploads/2021/02/interior-greenhouse-dome.jpg",
-			"alt": "Torres de cultivo",
+			"alt": "Torres para cultivos acuaponicos verticales y pequeñas superficies",
 			"id": "33",
 			"stock": 10
 		},

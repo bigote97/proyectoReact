@@ -8,12 +8,13 @@ import ListadoProductos from "./products/ListadoProductos";
 import {useParams} from "react-router-dom";
 // logica
 const Category = () =>{
-const {categoria} = useParams()
-console.log(categoria)
+	const {categoria} = useParams()
+	console.log(categoria)
+
     if (categoria === 'plantas'){
         return(
             <div>
-                <SubTitulos texto={titulos.subtituloPlantas}/>
+                <SubTitulos texto={titulos.subtituloPlantas} />
                 <ListadoProductos productos={productos.Plantas} />
             </div>
         );
@@ -31,7 +32,13 @@ console.log(categoria)
                 <ListadoProductos productos={productos.Invernaderos} />
             </div>
         );
-    }
+    } else {
+			return(
+                <div className=" max-w-2xl mx-auto py-2 px-4 sm:py-14 sm:px-6 lg:max-w-7xl lg:px-8">
+				    <h1>HOUSTON WE HAVE A PROBLEM</h1>
+                </div>
+			);
+		}
 }
 
 export default Category;
