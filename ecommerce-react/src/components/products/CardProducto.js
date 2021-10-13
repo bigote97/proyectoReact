@@ -1,3 +1,4 @@
+// Componentes
 import AddButton from './AddButton';
 import VerMasButton from './VerMasButton';
 
