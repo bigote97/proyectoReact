@@ -1,6 +1,6 @@
 function Cuerpo() {
 	return (
-		<footer className="w-full fixed bottom-0 bg-verde-darseafoamk grid grid-col-2">
+		<footer className="w-full sticky bottom-0 bg-verde-darseafoamk grid grid-col-2">
 			<div className=" col-start-3 col-end-5">
 				<p>LEGALES</p>
 				<p>LEGALES</p>

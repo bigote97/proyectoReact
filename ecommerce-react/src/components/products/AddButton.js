@@ -1,11 +1,15 @@
 //React
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useContext } from "react";
+import {Store} from '../../store';
 
 const ProductButton = ({producto}) => {
+    const [data, setData] = useContext(Store);
+	console.log('data')
+	console.log(data)   
 	/*Concateno el ID de producto al path del carrito para luego
 	 hacer la redireccion a la pantalla del carrito con el nuevo producto agregado*/
-	const carro = '/carrito/' + producto.id
 	const [cantidad, setCantidad] = useState (0);
 	let history = useHistory();
 
@@ -24,11 +28,24 @@ const ProductButton = ({producto}) => {
 	/* Cuando el usuario Hace click sobre "agregar al carrito" se verifica que este seleccionando
 	 una cantidad mayor que 0 y menor que el total en stock, de ser asi se lo redirige al carrito,
 	 en caso contrario se muestra un mensaje de error */
-	const AddToCart = () => {
-		if (cantidad > 0 && cantidad < producto.stock) {
-			let total = cantidad * producto.precio
-			alert("Se agregaron: " + cantidad + " unidad de: " + producto.titulo + " al carrito. A un total de: $" + total)
-			history.push(carro);
+	let encontrado
+	 const AddToCart = () => {
+		 if ((cantidad > 0) && (cantidad < producto.stock)) {
+			encontrado = data.items.find(x => x.id === producto.id)
+			if (encontrado === undefined){
+				let total = cantidad * producto.precio
+				let obj = data
+				obj.items.push(producto)
+				obj.cantidadTotal = obj.cantidadTotal + cantidad
+				obj.precioTotal = obj.precioTotal + total
+
+				setData(obj)
+				history.push("/carrito");
+				console.log(data)
+			} else {
+				alert("ya hay " + producto.titulo + " en el carrito")
+			}
+			
 		} else {
 			alert("No se puede agregar " + cantidad + " productos al carrito, modeifique la cantidad e intente nuevamente")
 		}
