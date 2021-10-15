@@ -2,16 +2,26 @@
 import CartRow from "./CartRow";
 
 // react
-import {  Link } from "react-router-dom";
-import { useContext } from "react";
+import {  Link, useHistory } from "react-router-dom";
+import { useContext, useEffect } from "react";
 import {Store} from '../../store';
 
 
 const Carrito = () => {
+	let history = useHistory();
 	const [data, setData] = useContext(Store);
-	console.log('data')
-	console.log(data)   
 	const texto = {titulo: 'Carrtio vacio', text:"Navega el sitio para agregar artculos al carrito"};
+	const limpiar = () => {
+        let obj = data
+        obj.items = []
+        obj.cantidadTotal = 0
+        obj.precioTotal = 0
+        setData(obj)
+		history.push("/");
+    }
+	useEffect(()=>{
+		console.log('cambio')
+    }, [data]);
 	return(
 		<div>
 			{
@@ -27,22 +37,20 @@ const Carrito = () => {
 					</div>
 				</>
 				:<>
-				{data.items.map(items => <CartRow producto={items} />)}
-					{/* <div className="grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
-						<div className="group text-center">
-							<a href={data.items[0].url}>
-								<div className="w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
-									<img src={data.items[0].imagen} alt={data.items[0].alt} className="w-full h-full object-center object-cover group-hover:opacity-75" />
-								</div>
-								<h3 className="mt-4 text-sm text-gray-700">{data.items[0].titulo}</h3>
-								<p className="mt-1 text-lg font-medium text-gray-900">${data.items[0].precio}</p>
-							</a>
-						</div>
-					</div> */}
+				<div className="px-6 py-2 flex justify-between">
+					<div>
+						<p>Cantidad: {data.cantidadTotal}</p>
+						<p>Total: ${data.precioTotal}</p>
+					</div>
+					<div className="flex justify-end mt-2">
+                        <p className="text-gray-700 text-base mr-0 cursor-pointer">Vaciar Carrito</p>
+                        <img className="ml-0 cursor-pointer" onClick={limpiar} src="/iconsTrash.svg"/>
+                    </div>
+				</div>
+					{data.items.map(items => <CartRow producto={items} />)}
 				</>				
 			}
 		</div>
-
 	)
 }
 

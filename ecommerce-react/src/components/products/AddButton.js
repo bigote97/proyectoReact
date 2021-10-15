@@ -6,8 +6,6 @@ import {Store} from '../../store';
 
 const ProductButton = ({producto}) => {
     const [data, setData] = useContext(Store);
-	console.log('data')
-	console.log(data)   
 	/*Concateno el ID de producto al path del carrito para luego
 	 hacer la redireccion a la pantalla del carrito con el nuevo producto agregado*/
 	const [cantidad, setCantidad] = useState (0);
@@ -35,15 +33,22 @@ const ProductButton = ({producto}) => {
 			if (encontrado === undefined){
 				let total = cantidad * producto.precio
 				let obj = data
+				producto.cantidad = cantidad
 				obj.items.push(producto)
 				obj.cantidadTotal = obj.cantidadTotal + cantidad
 				obj.precioTotal = obj.precioTotal + total
 
 				setData(obj)
 				history.push("/carrito");
-				console.log(data)
 			} else {
-				alert("ya hay " + producto.titulo + " en el carrito")
+				let posicion = data.items.indexOf(encontrado)
+				let total = cantidad * producto.precio
+				let obj = data
+				obj.items[posicion].cantidad = obj.items[posicion].cantidad + cantidad
+				obj.cantidadTotal = obj.cantidadTotal + cantidad
+				obj.precioTotal = obj.precioTotal + total
+				setData(obj)
+				history.push("/carrito");
 			}
 			
 		} else {
