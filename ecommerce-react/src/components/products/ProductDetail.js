@@ -3,29 +3,33 @@ import { getFirestore} from "../../data";
 // Componentes
 import AddButton from "./AddButton";
 // React
-import {useParams} from "react-router-dom";
-
+import { useParams } from "react-router-dom";
+import {  useEffect, useState  } from "react";
 const ProductDetail = ()=> {
-    // Defino encontrado, para luego guardar el producto en esta variable
-    let encontrado 
+    
     // Desde los parametros de la URL agarro el ID del producto a buscar
     const {ID} = useParams();
+    const [encontrado, setEncontrado] = useState([]);
     // Busco dicho ID entre los productos disponibles
 	const db = getFirestore();
-    getProductsDB()
+    // 
     const getProductsDB = () => {
-		db.collection('productos').get()
-		.then(docs =>{
-			let auxiliar = [];
-			docs.forEach(doc => {
-				auxiliar.push(doc.data())
-			})
-			// setItems(auxiliar)
-            encontrado = auxiliar.find(x => x.id === ID) 
-		})
-		.catch(e => console.error(e));
-	}
+        db.collection('productos').get()
+        .then(docs =>{
+            let auxiliar = [];
+            docs.forEach(doc => {
+                auxiliar.push(doc.data())
+            })
+            // setItems(auxiliar)
+            setEncontrado(auxiliar.find(x => x.id === ID) )
+        })
+        .catch(e => console.error(e));
+        }
     // Asigno el title correspondiente segun el producto
+    useEffect(() => {
+		getProductsDB()
+	}, [encontrado])
+
     if (encontrado !== undefined) {
         document.title = `Producto: ${encontrado.titulo}`
     }  else {
