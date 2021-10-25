@@ -1,5 +1,7 @@
+// datos
+// import productos from "../../data/listado";
+import { getFirestore} from "../../data";
 // Componentes
-import productos from "../../data/listado";
 import AddButton from "./AddButton";
 // React
 import {useParams} from "react-router-dom";
@@ -10,7 +12,20 @@ const ProductDetail = ()=> {
     // Desde los parametros de la URL agarro el ID del producto a buscar
     const {ID} = useParams();
     // Busco dicho ID entre los productos disponibles
-    encontrado = productos.Listado.find(x => x.id === ID) 
+	const db = getFirestore();
+    getProductsDB()
+    const getProductsDB = () => {
+		db.collection('productos').get()
+		.then(docs =>{
+			let auxiliar = [];
+			docs.forEach(doc => {
+				auxiliar.push(doc.data())
+			})
+			// setItems(auxiliar)
+            encontrado = auxiliar.find(x => x.id === ID) 
+		})
+		.catch(e => console.error(e));
+	}
     // Asigno el title correspondiente segun el producto
     if (encontrado !== undefined) {
         document.title = `Producto: ${encontrado.titulo}`

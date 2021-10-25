@@ -1,5 +1,5 @@
 // datos
-import productos from "../data/listado";
+import { getFirestore} from "../data";
 // componentes
 import SubTitulos from "./SubTitulos";
 import CardProducto from "./products/CardProducto";
@@ -9,33 +9,43 @@ import {useParams} from "react-router-dom";
 import { useState, useEffect } from "react";
 // logica
 const ProductListContainer = ({filter}) =>{
-    const {categoria} = useParams();
+	const {categoria} = useParams();
     const [items, setItems] = useState([]);
     const [verifica, setVerifica] = useState(true);
+	const db = getFirestore();
+
+	const getProductsDB = () => {
+		db.collection('productos').get()
+		.then(docs =>{
+			let auxiliar = [];
+			docs.forEach(doc => {
+				auxiliar.push(doc.data())
+				// console.log('doc')
+				// console.log(doc.data())
+			})
+			// setItems(auxiliar)
+			if (filter === 'path') {
+				let dbData = auxiliar.filter(x => x.categoria === categoria)
+				setItems(dbData)
+	
+				setVerifica(true)
+			/*Si filter es igual a "all" significa que el usuario llego via home y cargo todos los productos
+				disponibles*/
+			} else if (filter === 'all'){
+				setItems(auxiliar)
+				setVerifica(false)
+			}
+		})
+		.catch(e => console.error(e));
+	}
+
 	// Inicializo el titulo de 
 	const tituloCategoria = 'Listado de productos';
 	const descripcionCategoria = 'Aquí encontraros todos los productos disponibles de GreenCommerce. Selecciona ver "agregar al carrito" para comprar o "ver más" para conocer el producto';
-	//Simulo delay de respuesta de la base de datos
-	const getProductsFromDB = new Promise ((resolve, reject) => {
-    	setTimeout(() => {resolve(productos.Listado.filter(x => x.categoria === categoria))}, 1000)
-    })
 	
 	useEffect(() => {
 		setItems([])
-		//Si filter es igual a "path" significa que el usuario llego via NavBar y cargo los productos indicados
-		if (filter === 'path') {
-			getProductsFromDB.then(rta => {
-				setItems(rta)
-				document.title = `Categoría: ${categoria}`
-			})
-			setVerifica(true)
-		/*Si filter es igual a "all" significa que el usuario llego via home y cargo todos los productos
-			disponibles*/
-		} else if (filter === 'all'){
-			setItems(productos.Listado)
-			setVerifica(false)
-		}
-		// Verifico con useEffect si "categoria" es modificada
+		getProductsDB()
 	}, [categoria])
 	
     return(
