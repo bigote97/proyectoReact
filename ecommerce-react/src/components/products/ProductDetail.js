@@ -1,5 +1,4 @@
 // datos
-// import productos from "../../data/listado";
 import { getFirestore} from "../../data";
 // Componentes
 import AddButton from "./AddButton";
