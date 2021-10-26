@@ -5,6 +5,7 @@ import Cuerpo from "./components/Proposito";
 import ProductListContainer from "./components/ProductListContainer";
 import ProductDetail from "./components/products/ProductDetail";
 import Carrito from "./components/carrito/Carrito";
+import CheckOut from "./components/checkout";
 //React
 import {BrowserRouter, Switch, Route} from "react-router-dom"
 import { useState, } from "react";
@@ -42,6 +43,9 @@ function App() {
 					</Route>
 					<Route exact path="/carrito">
 						<Carrito/>
+					</Route>
+					<Route exact path="/CheckOut">
+						<CheckOut/>
 					</Route>
 					<Route path="*">
 						<Cuerpo/>

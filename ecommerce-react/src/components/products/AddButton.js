@@ -8,7 +8,7 @@ const ProductButton = ({producto}) => {
     const [data, setData] = useContext(Store);
 	/*Concateno el ID de producto al path del carrito para luego
 	 hacer la redireccion a la pantalla del carrito con el nuevo producto agregado*/
-	const [cantidad, setCantidad] = useState (0);
+	const [cantidad, setCantidad] = useState (1);
 	let history = useHistory();
 
 	/* Cuando el usuario Hace click sobre "+" se verifica que la cantidad elegida este por debajo del total que hay en stock*/
