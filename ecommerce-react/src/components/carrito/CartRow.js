@@ -1,8 +1,10 @@
 // React
 import { useContext } from "react";
 import {Store} from '../../store';
+import { useHistory } from "react-router-dom";
 
 const CartRow = ({producto}) =>{
+	let history = useHistory();
     const [data, setData] = useContext(Store);
     const removeProduct = () => {
         let obj = data   
@@ -11,6 +13,12 @@ const CartRow = ({producto}) =>{
         obj.cantidadTotal = obj.cantidadTotal - producto.cantidad
         obj.precioTotal = obj.precioTotal - totalProducto
         setData(obj)
+				
+        // Uso SPREAD operator para abrir el pop up del carrito
+        setData({...data, ['showPopUp']: false })
+        if (data.items.length === 0){
+            history.push("/")
+        }
     }
     const totalProducto = producto.cantidad * producto.precio
     return(
@@ -32,9 +40,9 @@ const CartRow = ({producto}) =>{
                             <p className="text-gray-600">precio: ${totalProducto}</p>
                         </div>
                     </div>
-                    <div className="flex justify-end mt-2">
+                    <div className="flex justify-end mt-2" onClick={removeProduct} >
                         <span className="text-gray-700 text-base cursor-pointer">Eliminar producto </span>
-                        <img className="cursor-pointer" onClick={removeProduct} src="/iconsTrash.svg" alt="Eliminar producto" />
+                        <img className="cursor-pointer" src="/iconsTrash.svg" alt="Eliminar producto" />
                     </div>
                 </div>
             </div>
