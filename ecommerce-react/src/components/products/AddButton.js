@@ -1,6 +1,6 @@
 //React
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import { useContext } from "react";
 import {Store} from '../../store';
 
@@ -9,7 +9,7 @@ const ProductButton = ({producto}) => {
 	/*Concateno el ID de producto al path del carrito para luego
 	 hacer la redireccion a la pantalla del carrito con el nuevo producto agregado*/
 	const [cantidad, setCantidad] = useState (1);
-	let history = useHistory();
+	// let history = useHistory();
 
 	/* Cuando el usuario Hace click sobre "+" se verifica que la cantidad elegida este por debajo del total que hay en stock*/
 	const mas = () => {
@@ -37,9 +37,10 @@ const ProductButton = ({producto}) => {
 				obj.items.push(producto)
 				obj.cantidadTotal = obj.cantidadTotal + cantidad
 				obj.precioTotal = obj.precioTotal + total
-
 				setData(obj)
-				history.push("/carrito");
+				
+				// Uso SPREAD operator para abrir el pop up del carrito
+				setData({...data, ['showPopUp']: true })
 			} else {
 				let posicion = data.items.indexOf(encontrado)
 				let total = cantidad * producto.precio
@@ -48,18 +49,24 @@ const ProductButton = ({producto}) => {
 				obj.cantidadTotal = obj.cantidadTotal + cantidad
 				obj.precioTotal = obj.precioTotal + total
 				setData(obj)
-				history.push("/carrito");
+				
+				// Uso SPREAD operator para abrir el pop up del carrito
+				setData({...data, ['showPopUp']: true })
 			}
 			
 		} else {
 			alert("No se puede agregar " + cantidad + " productos al carrito, modeifique la cantidad e intente nuevamente")
 		}
   };
+  const handleChangeInput = (e) => {
+		setCantidad (e.target.value)
+	} 
 	return(
-		<div>
+		<div className="text-center">
 			<div className="flex justify-center flex-row">
 				<button className="font-semibold" onClick={menos}>-</button>
-				<input className="mx-2 border rounded text-center w-8" type="text" value={cantidad}/>
+					<input className="mx-2 border rounded text-center w-8" type="text" value={cantidad} onChange={handleChangeInput}/> 
+					{/*value={FormData.apellido} onChange={handleChangeInput}*/}
 				<button className="font-semibold" onClick={mas}>+</button>
 			</div>
 			<button className="mt-2 py-1 px-3 border rounded"  onClick={AddToCart}>agregar al carrito</button>

@@ -6,10 +6,11 @@ import ProductListContainer from "./components/ProductListContainer";
 import ProductDetail from "./components/products/ProductDetail";
 import Carrito from "./components/carrito/Carrito";
 import CheckOut from "./components/checkout";
+import Tracking from "./components/checkout/tracking";
 //React
-import {BrowserRouter, Switch, Route} from "react-router-dom"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { useState, } from "react";
-import {Store} from './store';
+import { Store } from './store';
 
 
 // https://my.api.mockaroo.com/plantas.json?key=2be18e60
@@ -19,8 +20,6 @@ function App() {
 		items: [],
 		cantidadTotal:0,
 		precioTotal:0})
-	console.log('cartProducts')
-	console.log(cartProducts)
   return (
 	  <>
 		<Store.Provider value={[cartProducts, setCartProducts]}>
@@ -46,6 +45,9 @@ function App() {
 					</Route>
 					<Route exact path="/CheckOut">
 						<CheckOut/>
+					</Route>
+					<Route exact path="/CheckOut/track/:ID">
+						<Tracking/>
 					</Route>
 					<Route path="*">
 						<Cuerpo/>

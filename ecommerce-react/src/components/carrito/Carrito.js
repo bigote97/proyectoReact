@@ -3,12 +3,13 @@ import CartRow from "./CartRow";
 import CheckOutButton from "./CheckOutButton";
 // react
 import {  Link, useHistory } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import {Store} from '../../store';
 
 
 const Carrito = () => {
 	let history = useHistory();
+	const [cartContent, setCartContent] = useState([]);
 	const [data, setData] = useContext(Store);
 	const texto = {titulo: 'Carrtio vacio', text:"Navega el sitio para agregar artculos al carrito"};
 	const limpiar = () => {
@@ -20,7 +21,7 @@ const Carrito = () => {
 		history.push("/");
     }
 	useEffect(()=>{
-		console.log('cambio')
+		setCartContent(data.items)
     }, [data]);
 	return(
 		<div>
@@ -46,10 +47,12 @@ const Carrito = () => {
 					<CheckOutButton />
 					<div className="flex justify-end mt-2">
                         <p className="text-gray-700 text-base mr-0 cursor-pointer">Vaciar Carrito</p>
-                        <img className="ml-0 cursor-pointer" onClick={limpiar} src="/iconsTrash.svg"/>
+                        <img className="ml-0 cursor-pointer" onClick={limpiar} src="/iconsTrash.svg" alt="Vaciar carrito" />
                     </div>
 				</div>
-					{data.items.map(items => <CartRow producto={items} />)}
+				<div className="grid grid-cols-1 md:grid-cols-2">
+					{cartContent.map(items => <CartRow key={items.id} producto={items} />)}
+				</div>
 				</>				
 			}
 		</div>

@@ -1,4 +1,5 @@
 module.exports = {
+  // mode: 'jit',
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -12,7 +13,13 @@ module.exports = {
           lime: '#76B947',
         }
       }
-    },  
+    },
+    maxWidth: {
+      '1/4': '25%',
+      '1/2': '50%',
+      '45%': '45%',
+      '3/4': '75%',
+     }
   },
   variants: {
     extend: {},

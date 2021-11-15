@@ -20,10 +20,7 @@ const ProductListContainer = ({filter}) =>{
 			let auxiliar = [];
 			docs.forEach(doc => {
 				auxiliar.push(doc.data())
-				// console.log('doc')
-				// console.log(doc.data())
 			})
-			// setItems(auxiliar)
 			if (filter === 'path') {
 				let dbData = auxiliar.filter(x => x.categoria === categoria)
 				setItems(dbData)
@@ -39,13 +36,13 @@ const ProductListContainer = ({filter}) =>{
 		.catch(e => console.error(e));
 	}
 
-	// Inicializo el titulo de 
+	// Inicializo el titulo
 	const tituloCategoria = 'Listado de productos';
 	const descripcionCategoria = 'Aquí encontraros todos los productos disponibles de GreenCommerce. Selecciona ver "agregar al carrito" para comprar o "ver más" para conocer el producto';
 	
 	useEffect(() => {
-		setItems([])
 		getProductsDB()
+		setItems([])
 	}, [categoria])
 	
     return(
@@ -86,7 +83,7 @@ const ProductListContainer = ({filter}) =>{
 						</div>
 					</>
 					:<>
-           				{items.map(items => <CardProducto producto={items} />)}
+           				{items.map(items => <CardProducto key={items.id} producto={items} />)}
 					</>
 				}
             </div>

@@ -2,13 +2,14 @@ const firebase = require('firebase');
 require('firebase/firestore')
 
 firebase.initializeApp ({
-	apiKey: "AIzaSyDrCMLMbKY3GNqvSsOGvedsxwqnaqRmPjA",
-	authDomain: "greencommerce-db.firebaseapp.com",
-	projectId: "greencommerce-db",
-	// storageBucket: "greencommerce-db.appspot.com",
-	// messagingSenderId: "1092162152308",
-	// appId: "1:1092162152308:web:c5f2ccbc2d88bc041d6e21",
-	// measurementId: "G-BTR0W4LFSL"
+	// CURRENT DB
+	// apiKey: process.env.API_KEY,
+	// authDomain: "greencommerce-db.firebaseapp.com",
+	// projectId: "greencommerce-db",
+	// AUXILIAR DB
+	apiKey: "AIzaSyBmVAML8PeJwaPl0vp5K2KIPOltQRnah1I",
+	authDomain: "greencommerce-db-auxiliar.firebaseapp.com",
+	projectId: "greencommerce-db-auxiliar",
 })
 
 var db = firebase.firestore()
