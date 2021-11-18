@@ -56,7 +56,7 @@ const CheckOut = () => {
         setData(obj)
         
         // Uso SPREAD operator para cerrar el pop up del carrito
-        setData({...data, ['showPopUp']: true })
+        setData({...data, showPopUp : true })
         const path = "/CheckOut/track/" + ID
 		history.push(path);
     }

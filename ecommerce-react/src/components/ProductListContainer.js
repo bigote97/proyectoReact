@@ -42,7 +42,6 @@ const ProductListContainer = ({filter}) =>{
 	
 	useEffect(() => {
 		getProductsDB()
-		setItems([])
 	}, [categoria])
 	
     return(

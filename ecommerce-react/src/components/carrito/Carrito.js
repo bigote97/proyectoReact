@@ -13,11 +13,13 @@ const Carrito = () => {
 	const [data, setData] = useContext(Store);
 	const texto = {titulo: 'Carrtio vacio', text:"Navega el sitio para agregar artculos al carrito"};
 	const limpiar = () => {
-        let obj = data
-        obj.items = []
-        obj.cantidadTotal = 0
-        obj.precioTotal = 0
-        setData(obj)
+		// Manejo el context con un Spread Operator
+		setData({...data,
+			showPopUp: false,
+			items : [],
+			cantidadTotal : 0,
+			precioTotal : 0
+		})
 		history.push("/");
     }
 	useEffect(()=>{

@@ -11,7 +11,7 @@ const PopUpCart = () => {
         // obj.precioTotal = data.precioTotal
         // obj.showPopUp = false
         
-        setData({...data, ['showPopUp']: false })
+        setData({...data, showPopUp : false })
         history.push("/carrito");
     };
 	return (

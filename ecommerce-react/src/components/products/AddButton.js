@@ -40,7 +40,7 @@ const ProductButton = ({producto}) => {
 				setData(obj)
 				
 				// Uso SPREAD operator para abrir el pop up del carrito
-				setData({...data, ['showPopUp']: true })
+				setData({...data, showPopUp : true })
 			} else {
 				let posicion = data.items.indexOf(encontrado)
 				let total = cantidad * producto.precio
@@ -51,7 +51,7 @@ const ProductButton = ({producto}) => {
 				setData(obj)
 				
 				// Uso SPREAD operator para abrir el pop up del carrito
-				setData({...data, ['showPopUp']: true })
+				setData({...data, showPopUp : true })
 			}
 			
 		} else {

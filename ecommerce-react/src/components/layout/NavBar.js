@@ -20,21 +20,11 @@ const NavBar = () => {
 		setShowMenu(false)
 		setShowCart(!showCart);
 		if (showCart) {
-			// let obj = data
-			// obj.items = data.items
-			// obj.cantidadTotal = data.cantidadTotal
-			// obj.precioTotal = data.precioTotal
-			// obj.showPopUp = false
-			// setData(obj)
-			setData({...data, ['showPopUp']: false })
+			// Cambio el estado del popUp de productos en el context
+			setData({...data, showPopUp : false })
 		} else {
-			// let obj = data
-			// obj.items = data.items
-			// obj.cantidadTotal = data.cantidadTotal
-			// obj.precioTotal = data.precioTotal
-			// obj.showPopUp = true
-			// setData(obj)
-			setData({...data, ['showPopUp']: true })
+			// Cambio el estado del popUp de productos en el context
+			setData({...data, showPopUp : true })
 		}
 	};
 

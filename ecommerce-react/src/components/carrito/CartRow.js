@@ -7,15 +7,22 @@ const CartRow = ({producto}) =>{
 	let history = useHistory();
     const [data, setData] = useContext(Store);
     const removeProduct = () => {
-        let obj = data   
+        // let obj = data   
+        // let encontrado = data.items.filter(x => x.id !== producto.id)
+        // obj.items = encontrado
+        // obj.cantidadTotal = obj.cantidadTotal - producto.cantidad
+        // obj.precioTotal = obj.precioTotal - totalProducto
+        // setData(obj)
         let encontrado = data.items.filter(x => x.id !== producto.id)
-        obj.items = encontrado
-        obj.cantidadTotal = obj.cantidadTotal - producto.cantidad
-        obj.precioTotal = obj.precioTotal - totalProducto
-        setData(obj)
-				
+        console.log(encontrado)
+        setData({...data,
+			showPopUp: false,
+			items : encontrado,
+			cantidadTotal : data.cantidadTotal - producto.cantidad,
+			precioTotal : data.precioTotal - totalProducto
+		})
         // Uso SPREAD operator para abrir el pop up del carrito
-        setData({...data, ['showPopUp']: false })
+        setData({...data, showPopUp: false })
         if (data.items.length === 0){
             history.push("/")
         }
